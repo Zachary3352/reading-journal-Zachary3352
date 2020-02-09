@@ -1,41 +1,69 @@
 import turtle
 
 #------------------------------------------------------------------------------
-# Starter code to get things going
-# (feel free to delete once you've written your own functions
-#------------------------------------------------------------------------------
-
-# Create the world, and a turtle to put in it
-bob = turtle.Turtle()
-
-# Get moving, turtle!
-bob.fd(100)
-
-# Wait for the user to close the window
-turtle.mainloop()
-
-
-#------------------------------------------------------------------------------
 # Make some shapes
 #   Work through exercises 1-4 in Chapter 4.3.
 #------------------------------------------------------------------------------
 
+# Square
 # NOTE: for part 2 of 4.3, you will add another parameter to this function
-def square(t):
+
+def square(t, length):
     """
     Draw a square using Turtle t
 
     >>> don = turtle.Turtle()
-    >>> square(don)
+    >>> square(don, 200)
     """
-    pass # Delete this line and replace it with your code
+
+    t.fd(length)
+    t.rt(90)
+    t.fd(length)
+    t.rt(90)
+    t.fd(length)
+    t.rt(90)
+    t.fd(length)
+
+    turtle.mainloop()
 
 
 ## Polygon
 
+def polygon(t, n, length):
+    """
+    Draw a polygon using Turtle t
+
+    >>> don = turtle.Turtle()
+    >>> polygon(don, 7, 200)
+    """
+
+    for i in range(n):
+        t.fd(length)
+        t.rt(360/n)
+
+    turtle.mainloop()
+
 
 ## Circle
 
+def circle(t, r):
+    """
+    Draw a circle using Turtle t
+
+    >>> don = turtle.Turtle()
+    >>> circle(don, 50)
+    """
+
+    for i in range(150):
+        t.fd((r*3.1415926*2)/150)
+        t.rt(360/150)
+
+    turtle.mainloop()
+
+# john = turtle.Turtle()
+# square(john,100)
+# polygon(john,7,100)
+# circle(john,10) # This file calls all three functions with these lines uncommented, but because of some Tkinter error that I think is outside the scope of this RJ (_tkinter.TclError: invalid command name ".!canvas"), it only runs one of these three lines before the program quits.
 
 #------------------------------------------------------------------------------
 # Make some art
@@ -43,3 +71,23 @@ def square(t):
 #------------------------------------------------------------------------------
 
 # If you come up with some cool drawings you'd like to share with the rest of the class, let us know!
+
+def hyperbolic_spiral(t, lines):
+    """
+    Draw a hyperbolic spiral using Turtle t
+
+    >>> don = turtle.Turtle()
+    >>> hyperbolic_spiral(don, 360)
+    """
+
+    for i in range(lines):
+        t.fd(1)
+        t.lt(lines/(i+1))
+
+    turtle.mainloop()
+
+
+# if __name__ == "__main__":
+#    import doctest
+#    doctest.testmod()
+#    doctest.run_docstring_examples(square, globals(), verbose=True)
